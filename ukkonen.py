@@ -3,7 +3,7 @@
 INF = 1.0e3000
 
 class SuffixNode(object):
-	
+
 	def __init__(self, i_from, i_to, text):
 		self.children = {}
 		self.suffix_link = None
@@ -22,7 +22,7 @@ class SuffixNode(object):
 		else:
 			text = self.text[self.i_from : self.i_to]
 		return repr(text)
-	
+
 	def add(self, child):
 		self[self.text[child.i_from]] = child
 
@@ -38,7 +38,7 @@ class SuffixNode(object):
 def Ukkonen(text):
 
 	'''Suffix tree for the text.
-	
+
 	>>> print Ukkonen('ananas')
 	''
 	  'a'

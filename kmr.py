@@ -3,7 +3,7 @@
 def KMR(text):
 	'''Suffix table for the text.
 	Time complexity: O(n log n), where n = |text|.
-	
+
 	>>> text = 'ananasy'
 	>>> for n in KMR(text):
 	...     print n, text[n:]
@@ -80,7 +80,7 @@ def LCP(text, suf = None):
 def KS(text):
 	'''Suffix table for the text.
 	Time complexity: O(n), where n = |text|.
-	
+
 	>>> text = 'ananasy'
 	>>> for n in KS(text):
 	...     print n, text[n:]
@@ -93,7 +93,7 @@ def KS(text):
 	5 sy
 	6 y
 	'''
-	
+
 	def encode(text):
 		alphabet = set()
 		for i in xrange(1, text_len, 3):
@@ -189,7 +189,7 @@ class SuffixNode(object):
 				self.children[label].to_suffix_table(result)
 		if ret:
 			return result
-				
+
 	@property
 	def label(self):
 		return repr(self.text[self.i_from : self.i_to])

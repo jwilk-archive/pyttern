@@ -80,7 +80,7 @@ def McCreight(text):
 			length -= node.length
 			node = node[text[i_from]]
 		return node, node.i_from + length
-	
+
 	def slow_scan(node, i_from, i_to):
 		assert node is not None
 		assert i_from <= i_to
