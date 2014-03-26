@@ -159,9 +159,9 @@ def KS(text):
                 j += 1
 
         def merge(list1, list2):
-            list = list1 + list2
-            list.sort(cmp=quick_cmp)
-            return list
+            lst = list1 + list2
+            lst.sort(cmp=quick_cmp)
+            return lst
 
         suf23 = [decoding(i) for i in suffix_table]
         suf1 = [
