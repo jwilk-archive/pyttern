@@ -30,7 +30,7 @@ def P(text):
     '''
     t = -1
     p = [t]
-    for i, x in enumerate(text):
+    for x in text:
         while t >= 0 and x != text[t]:
             t = p[t]
         t += 1
