@@ -50,11 +50,11 @@ class SuffixNode(object):
     def add(self, child):
         self[self.text[child.i_from]] = child
 
-    def __getitem__(self, id):
-        return self.children[id]
+    def __getitem__(self, ident):
+        return self.children[ident]
 
-    def __setitem__(self, id, child):
-        self.children[id] = child
+    def __setitem__(self, ident, child):
+        self.children[ident] = child
 
     def __str__(self, indent=0):
         return '%s%s\n%s' % (

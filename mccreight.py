@@ -62,11 +62,11 @@ class SuffixNode(object):
     def label(self):
         return repr(self.text[self.i_from : self.i_to])
 
-    def __getitem__(self, id):
-        return self.children[id]
+    def __getitem__(self, ident):
+        return self.children[ident]
 
-    def __setitem__(self, id, child):
-        self.children[id] = child
+    def __setitem__(self, ident, child):
+        self.children[ident] = child
 
     def __str__(self, indent=0):
         return '%s%s\n%s' % (
