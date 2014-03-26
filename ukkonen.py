@@ -57,7 +57,11 @@ class SuffixNode(object):
         self.children[id] = child
 
     def __str__(self, indent=0):
-        return '%s%s\n%s' % (indent * '  ', self.label, ''.join(s.__str__(indent + 1) for s in self.children.itervalues()))
+        return '%s%s\n%s' % (
+            indent * '  ',
+            self.label,
+            ''.join(s.__str__(indent + 1) for s in self.children.itervalues())
+        )
 
 def Ukkonen(text):
 

@@ -164,7 +164,10 @@ def KS(text):
             return list
 
         suf23 = [decoding(i) for i in suffix_table]
-        suf1 = [i for _, _, i in sorted((text[i - 1], pos, i - 1) for pos, i in enumerate(suf23) if i % 3 == 1)]
+        suf1 = [
+            i for _, _, i in sorted((text[i - 1], pos, i - 1)
+            for pos, i in enumerate(suf23) if i % 3 == 1)
+        ]
         rsuf = {}
         for pos, i in enumerate(suf23):
             rsuf[i] = 23, pos
@@ -177,7 +180,10 @@ def KS(text):
 
     text_len = len(text)
     if text_len <= 3:
-        result = [i for _, i in sorted((text[i:], i) for i in xrange(text_len))]
+        result = [
+            i for _, i in sorted((text[i:], i)
+            for i in xrange(text_len))
+        ]
         return result
     return decode(KS(encode(text)))
 
@@ -219,7 +225,11 @@ class SuffixNode(object):
         return repr(self.text[self.i_from : self.i_to])
 
     def __str__(self, indent=0):
-        return '%s%s\n%s' % (indent * '  ', self.label, ''.join(s.__str__(indent + 1) for s in self.children.itervalues()))
+        return '%s%s\n%s' % (
+            indent * '  ',
+            self.label,
+            ''.join(s.__str__(indent + 1) for s in self.children.itervalues())
+        )
 
 def suffix_tree(text, suf=None, lcp=None):
     '''Build suffix tree for the text, given the suffix table and the LCP table.
