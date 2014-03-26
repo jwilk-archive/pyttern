@@ -68,7 +68,7 @@ class SuffixNode(object):
     def __setitem__(self, id, child):
         self.children[id] = child
 
-    def __str__(self, indent = 0):
+    def __str__(self, indent=0):
         return '%s%s\n%s' % (indent * '  ', self.label, ''.join(s.__str__(indent + 1) for s in self.children.itervalues()))
 
 def McCreight(text):

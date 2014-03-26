@@ -56,7 +56,7 @@ class SuffixNode(object):
     def __setitem__(self, id, child):
         self.children[id] = child
 
-    def __str__(self, indent = 0):
+    def __str__(self, indent=0):
         return '%s%s\n%s' % (indent * '  ', self.label, ''.join(s.__str__(indent + 1) for s in self.children.itervalues()))
 
 def Ukkonen(text):
@@ -82,7 +82,7 @@ def Ukkonen(text):
         while True:
             end_point, new_node = test_and_split(node, i, j - 1, text[j])
             if end_point:
-                break;
+                break
             new_node.add(SuffixNode(j, INF, text))
             if old_node is not None:
                 old_node.suffix_link = new_node

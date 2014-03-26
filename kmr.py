@@ -62,7 +62,7 @@ def KMR(text):
         suf[j] = i
     return suf
 
-def LCP(text, suf = None):
+def LCP(text, suf=None):
     '''Computer LCP for the text, given the suffix table.
     Time complexity: O(n) (+ suffix table computation), where n = |text|.
 
@@ -160,7 +160,7 @@ def KS(text):
 
         def merge(list1, list2):
             list = list1 + list2
-            list.sort(cmp = quick_cmp)
+            list.sort(cmp=quick_cmp)
             return list
 
         suf23 = [decoding(i) for i in suffix_table]
@@ -185,7 +185,7 @@ class SuffixNode(object):
 
     '''node of a suffix tree'''
 
-    def __init__(self, parent, i_from, i_to, text = None):
+    def __init__(self, parent, i_from, i_to, text=None):
         self.i_from = i_from
         self.i_to = i_to
         if parent is not None:
@@ -201,7 +201,7 @@ class SuffixNode(object):
         key = self.text[child.i_from]
         self.children[key] = child
 
-    def to_suffix_table(self, result = None):
+    def to_suffix_table(self, result=None):
         ret = False
         if result == None:
             result = []
@@ -218,10 +218,10 @@ class SuffixNode(object):
     def label(self):
         return repr(self.text[self.i_from : self.i_to])
 
-    def __str__(self, indent = 0):
+    def __str__(self, indent=0):
         return '%s%s\n%s' % (indent * '  ', self.label, ''.join(s.__str__(indent + 1) for s in self.children.itervalues()))
 
-def suffix_tree(text, suf = None, lcp = None):
+def suffix_tree(text, suf=None, lcp=None):
     '''Build suffix tree for the text, given the suffix table and the LCP table.
 
     >>> print suffix_tree('ananas')
