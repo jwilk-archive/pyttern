@@ -203,7 +203,7 @@ class SuffixNode(object):
 
     def to_suffix_table(self, result=None):
         ret = False
-        if result == None:
+        if result is None:
             result = []
             ret = True
         if len(self.children) == 0:
