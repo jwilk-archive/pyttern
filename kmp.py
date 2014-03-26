@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-'''Text algorithms: Pattern matching.'''
+'''text algorithms: pattern matching'''
 
 def P(text):
-	'''Prefix-suffix table for the text.
+	'''Build prefix-suffix table for the text.
 
 	>>> P('ananasy')
 	[-1, 0, 0, 1, 2, 3, 0, 0]
@@ -38,7 +38,7 @@ def P(text):
 	return p
 
 def Ps(text):
-	'''Strong prefix-suffix table for the text.
+	'''Build strong prefix-suffix table for the text.
 
 	>>> Ps('ananasy')
 	[-1, 0, -1, 0, -1, 3, 0, 0]

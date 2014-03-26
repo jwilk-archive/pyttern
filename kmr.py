@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-'''Text algorithms: Suffix tables and suffix trees.'''
+'''text algorithms: suffix tables and suffix trees'''
 
 def KMR(text):
-	'''Suffix table for the text.
+	'''Build suffix table for the text.
 	Time complexity: O(n log n), where n = |text|.
 
 	>>> text = 'ananasy'
@@ -63,7 +63,7 @@ def KMR(text):
 	return suf
 
 def LCP(text, suf = None):
-	'''LCP for the text, given the suffix table.
+	'''Computer LCP for the text, given the suffix table.
 	Time complexity: O(n) (+ suffix table computation), where n = |text|.
 
 	>>> text = 'ananasy'
@@ -100,7 +100,7 @@ def LCP(text, suf = None):
 	return result[1:]
 
 def KS(text):
-	'''Suffix table for the text.
+	'''Build suffix table for the text.
 	Time complexity: O(n), where n = |text|.
 
 	>>> text = 'ananasy'
@@ -182,7 +182,9 @@ def KS(text):
 	return decode(KS(encode(text)))
 
 class SuffixNode(object):
-	'''A node of a suffix tree.'''
+
+	'''node of a suffix tree'''
+
 	def __init__(self, parent, i_from, i_to, text = None):
 		self.i_from = i_from
 		self.i_to = i_to
@@ -220,7 +222,7 @@ class SuffixNode(object):
 		return '%s%s\n%s' % (indent * '  ', self.label, ''.join(s.__str__(indent + 1) for s in self.children.itervalues()))
 
 def suffix_tree(text, suf = None, lcp = None):
-	'''Suffix tree for the text, given the suffix table and the LCP table.
+	'''Build suffix tree for the text, given the suffix table and the LCP table.
 
 	>>> print suffix_tree('ananas')
 	''

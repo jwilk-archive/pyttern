@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-'''Text algorithms: Suffix trees -- the McCreight algorithm.'''
+'''text algorithms: suffix trees -- the McCreight algorithm'''
 
 class SuffixNode(object):
 
@@ -73,7 +73,7 @@ class SuffixNode(object):
 
 def McCreight(text):
 
-	'''Suffix tree for the text.
+	'''Build suffix tree for the text.
 
 	>>> print McCreight('ananas$')
 	''

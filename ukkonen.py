@@ -20,11 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-'''Text algorithms: Suffix trees -- the Ukkonen algorithm.'''
+'''text algorithms: suffix trees -- the Ukkonen algorithm'''
 
 INF = 1.0e3000
 
 class SuffixNode(object):
+
+	'''node of a suffix tree'''
 
 	def __init__(self, i_from, i_to, text):
 		self.children = {}
@@ -59,7 +61,7 @@ class SuffixNode(object):
 
 def Ukkonen(text):
 
-	'''Suffix tree for the text.
+	'''Build suffix tree for the text.
 
 	>>> print Ukkonen('ananas')
 	''
