@@ -240,7 +240,10 @@ class SuffixNode(object):
         return '%s%s\n%s' % (
             indent * '  ',
             self.label,
-            ''.join(s.__str__(indent + 1) for s in self.children.itervalues())
+            ''.join(
+                child.__str__(indent + 1)
+                for key, child in sorted(self.children.iteritems())
+            )
         )
 
 def suffix_tree(text, suf=None, lcp=None):
@@ -249,14 +252,14 @@ def suffix_tree(text, suf=None, lcp=None):
     >>> print suffix_tree('ananas')
     ''
       'a'
-        's'
         'na'
-          's'
           'nas'
-      's'
-      'na'
+          's'
         's'
+      'na'
         'nas'
+        's'
+      's'
     <BLANKLINE>
     '''
     text_len = len(text)

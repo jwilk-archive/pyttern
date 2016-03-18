@@ -1,6 +1,6 @@
 # encoding=UTF-8
 
-# Copyright © 2007-2014 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2007-2016 Jakub Wilk <jwilk@jwilk.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the “Software”), to deal
@@ -60,7 +60,10 @@ class SuffixNode(object):
         return '%s%s\n%s' % (
             indent * '  ',
             self.label,
-            ''.join(s.__str__(indent + 1) for s in self.children.itervalues())
+            ''.join(
+                child.__str__(indent + 1)
+                for key, child in sorted(self.children.iteritems())
+            )
         )
 
 def Ukkonen(text):
@@ -70,14 +73,14 @@ def Ukkonen(text):
     >>> print Ukkonen('ananas')
     ''
       'a'
-        's'
         'na'
-          's'
           'nas'
-      's'
-      'na'
+          's'
         's'
+      'na'
         'nas'
+        's'
+      's'
     <BLANKLINE>
     '''
 
