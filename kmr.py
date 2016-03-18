@@ -1,6 +1,6 @@
 # encoding=UTF-8
 
-# Copyright © 2007, 2014 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2007-2016 Jakub Wilk <jwilk@jwilk.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the “Software”), to deal
@@ -158,9 +158,21 @@ def KS(text):
                 i += 1
                 j += 1
 
-        def merge(list1, list2):
-            lst = list1 + list2
-            lst.sort(cmp=quick_cmp)
+        def merge(lst1, lst2):
+            lst = []
+            i = 0
+            j = 0
+            while i < len(lst1) and j < len(lst2):
+                x = lst1[i]
+                y = lst2[j]
+                if quick_cmp(x, y) <= 0:
+                    lst += [x]
+                    i += 1
+                else:
+                    lst += [y]
+                    j += 1
+            lst += lst1[i:]
+            lst += lst2[j:]
             return lst
 
         suf23 = [decoding(i) for i in suffix_table]
