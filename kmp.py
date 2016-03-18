@@ -1,6 +1,6 @@
 # encoding=UTF-8
 
-# Copyright © 2007-2014 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2007-2016 Jakub Wilk <jwilk@jwilk.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the “Software”), to deal
@@ -60,24 +60,27 @@ def KMP(needle, haystack, f):
     '''Search for the needle in the haystack.
     Compute the prefix-suffix table with <f>.
 
-    >>> KMP('ana', 'ananasy', P)
-    0 0 1 0 1 0 0
-    >>> KMP('ana', 'ananasy', Ps)
-    0 0 1 0 1 0 0
+    >>> for pos in KMP('ana', 'ananasy', P):
+    ...     print(pos)
+    2
+    4
+    >>> for pos in KMP('ana', 'ananasy', Ps):
+    ...     print(pos)
+    2
+    4
     '''
     p = f(needle)
     n_len = len(needle)
     i = 0
+    pos = 0
     for sym in haystack:
         while i >= 0 and needle[i] != sym:
             i = p[i]
         i += 1
         if i == n_len:
-            print 1,
+            yield pos
             i = p[n_len]
-        else:
-            print 0,
-    print
+        pos += 1
 
 if __name__ == '__main__':
     import doctest
