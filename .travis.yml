@@ -1,0 +1,9 @@
+language: python
+python:
+- "2.6"
+- "2.7"
+- "pypy"
+script:
+- nosetests --with-doctest -v
+
+# vim:ts=2 sts=2 sw=2 et
