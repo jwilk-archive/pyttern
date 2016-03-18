@@ -62,17 +62,17 @@ def KMP(needle, haystack, f):
 
     >>> for pos in KMP('ana', 'ananasy', P):
     ...     print(pos)
+    0
     2
-    4
     >>> for pos in KMP('ana', 'ananasy', Ps):
     ...     print(pos)
+    0
     2
-    4
     '''
     p = f(needle)
     n_len = len(needle)
     i = 0
-    pos = 0
+    pos = 1 - n_len
     for sym in haystack:
         while i >= 0 and needle[i] != sym:
             i = p[i]
