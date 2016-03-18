@@ -22,7 +22,7 @@
 
 '''text algorithms: suffix trees -- the Ukkonen algorithm'''
 
-INF = 1.0e3000
+INF = 1e999
 
 class SuffixNode(object):
 
