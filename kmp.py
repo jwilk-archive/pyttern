@@ -50,10 +50,10 @@ def Ps(text):
         while t >= 0 and x != text[t]:
             t = p[t]
         t += 1
-        if i + 1 == text_len or text[t] != text[i + 1]:
-            p.append(t)
-        else:
+        if i + 1 < text_len and text[t] == text[i + 1]:
             p.append(p[t])
+        else:
+            p.append(t)
     return p
 
 def KMP(needle, haystack, f):
